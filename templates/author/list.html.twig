@@ -1,0 +1,32 @@
+{% block title  %}hello ProductController!{% endblock %}
+
+{% block body %}
+ {% set totalbooks = 0 %}
+{% if authorsArray |length != 0 %}
+<p> Nombre d'auteurs :{{authorsArray|length}}</p>
+<table>
+<tr>
+        <th>Id</th>
+        <th>picture</th>
+        <th>username</th>
+         <th>email</th>
+          <th>nb_books</th>
+        </tr>
+   
+ {% for author in authorsArray %}
+  {% set totalbooks = totalbooks + author.nb_books %}
+  <tr>
+    <td> {{ author.id }}    </td>
+    <td> <img src="/images/Victor-hugo.jpg" width="50" height="50"></td>
+    <td> {{ author.username|upper }}</td>
+    <td> {{ author.email }}</td>
+    <td>{{ author.nb_books }} <a href="{{ path('authorDetails' , {'id': author.id}) }}">details</a> </td>
+   
+    </tr>
+ {% endfor %}
+ </table>
+ {% else %}
+<p>Aucun auteur n'est disponible</p>
+{% endif %}
+ <p>Nombres total des livres des tous les auteurs ::{{totalbooks}}</p>
+{% endblock %}

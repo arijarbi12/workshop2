@@ -1,0 +1,15 @@
+index:
+    path: /product
+    controller: App\Controller\ProductController::index
+showTeacher:
+    path: /show/{name}/{id}
+    controller: App\Controller\TeacherController::showTeacher
+showAuthor:
+    path: /showAuthor/{name}
+    controller: App\Controller\AuthorController::showAuthor
+list:
+    path: /list
+    controller: App\Controller\AuthorController::list
+authorDetails:
+    path: /authorDetails/{id}
+    controller: App\Controller\AuthorController::authorDetails
